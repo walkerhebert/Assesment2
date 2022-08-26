@@ -35,7 +35,7 @@ const cart = [
 
 //CODE HERE
 
-const summedPrice = cart.reduce((accumulator, current) => accumulator + current.price, 0)
+const summedPrice = cart.reduce((total, current) => total + current.price, 0)
 console.log(summedPrice)
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -53,8 +53,13 @@ console.log(summedPrice)
 */
 
 //CODE HERE
-// const calcFinalPrice = (`cartTotal`, `couponValue`, `tax`)
+const calcFinalPrice = (cartTotal, couponValue, tax) => {
+    const totalBeforeCoupon = cartTotal * (1 + tax)
+    const finalPrice = totalBeforeCoupon - couponValue
 
+    return finalPrice
+}
+console.log(calcFinalPrice(summedPrice, 5, .06))
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -87,7 +92,7 @@ console.log(summedPrice)
 */
 
 //CODE HERE
-let customer = {
+const customer = {
     custName: 'Walker',
     custOrder: 'Chicken',
     custAllergies: `Nuts`,
